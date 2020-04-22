@@ -60,105 +60,103 @@
 
 	（注意：PICO-8 仅显示大写字符 -- 只需正常输入不需要启用大写键！）
 
-您可以通过在代码编辑中使用类似这样的命令来构建交互式程序
-模式以及两个特殊的回调函数_UPDATE和_DRAW。例如，以下
-程序允许您使用光标键在圆周围移动。按Esc键切换到
-代码编辑器，然后键入或复制并粘贴以下代码：
+	您可以通过在代码编辑模式中使用类似这样的命令
+	以及两个特殊的回调函数 _UPDATE 和 _DRAW 来构建交互式程序。
+	例如，以下程序允许您使用方向键使圆移动。
+	按 Esc 键切换到代码编辑器，然后键入或复制并粘贴以下代码：
 
-X = 64 Y = 64
-功能_UPDATE（）
-如果（BTN（0））然后X = X-1结束
-如果（BTN（1））然后X = X + 1结束
-如果（BTN（2））然后Y = Y-1结束
-如果（BTN（3））然后Y = Y + 1结束
-结束
+	X = 64  Y = 64
+	FUNCTION _UPDATE()
+	 IF (BTN(0)) THEN X=X-1 END
+	 IF (BTN(1)) THEN X=X+1 END
+	 IF (BTN(2)) THEN Y=Y-1 END
+	 IF (BTN(3)) THEN Y=Y+1 END
+	END
 
-功能_DRAW（）
-CLS（5）
-CIRCFILL（X，Y，7,14）
-结束
+	FUNCTION _DRAW()
+	 CLS(5)
+	 CIRCFILL(X,Y,7,14)
+	END
 
-现在按Esc返回到控制台，然后键入RUN（或按CTRL-R）以查看其运行情况。
-有关更复杂的程序（类型INSTALL_DEMOS），请参阅演示盒。
+	现在按下 Esc 返回到控制台，然后键入 RUN（或按 CTRL-R）以查看其运行情况。
+	请参阅 demo 卡带来查看更复杂的程序（键入 INSTALL_DEMOS）。
 
-如果要存储程序供以后使用，请使用SAVE命令：
+	如果要存储程序供以后使用，请使用 SAVE 命令：
 
->保存密码
+	> SAVE PINKCIRC
 
-并再次加载：
+	再次加载：
 
->加载密码
-
-
-::墨盒示例
-
-这些墨盒包含在PICO-8中，可以通过键入以下内容进行安装：
-
-INSTALL_DEMOS
-光盘演示
-LS
-
-来自PICO-8的HELLO问候
-API展示了大多数PICO-8功能
-支持2p的JELPI平台游戏演示
-CAST 2.5D Raycaster演示
-DRIPPY画一滴水花
-WANDER简易步行模拟器
-COLLIDE示例墙和演员碰撞
-
-要运行墨盒，请打开PICO-8并输入：
-
-加载JELPI
-跑
-
-按Esc键停止程序，再按一次进入编辑模式。
-
-也可以通过以下方式安装少量的BBS推车：INSTALL_GAMES
+	> LOAD PINKCIRC
 
 
+:: 示例卡带
 
-：： 文件系统
+	这些卡带包含在 PICO-8 中，可以通过键入以下内容进行安装：
 
-这些命令可用于管理文件和目录（文件夹）：
+	INSTALL_DEMOS
+	CD DEMOS
+	LS
 
-LS列出当前目录
-CD BLAH更改目录
-CD ..上一个目录
-CD /回到顶层目录（在PICO-8的虚拟驱动器上）
-MKDIR BLAH制作目录
-FOLDER在主机操作系统的文件浏览器中打开当前目录
+	HELLO      Greetings from PICO-8
+	API        Demonstrates most PICO-8 functions
+	JELPI      Platform game demo w/ 2p support 
+	CAST       2.5D Raycaster demo
+	DRIPPY     Draw a drippy squiggle
+	WANDER     Simple walking simulator
+	COLLIDE    Example wall and actor collisions
 
-LOAD BLAH从当前目录加载购物车
-SAVE BLAH将购物车保存到当前目录
+	要运行卡带，请打开 PICO-8 并键入：
 
-如果要移动文件，复制或删除文件，请使用文件夹
-命令并在主机操作系统中执行。
+	LOAD JELPI
+	RUN
 
-PICO-8的驱动器的默认位置是：
+	按 Esc 键停止程序，再按一次进入编辑模式。
 
-Windows：C：/用户/您的名字/ AppData / Roaming / pico-8 / carts
-OSX：/用户/您的姓名/图书馆/应用程序支持/ pico-8 / carts
-Linux：〜/ .lexaloffle / pico-8 / carts
-
-您可以在pico-8 / config.txt中更改此设置和其他设置
-
-提示：可以将驱动器目录映射到云驱动器（由Dropbox，Google提供
-驱动器或类似设备）以创建在PICO-8计算机之间共享的单个磁盘
-跨不同的主机。
+	也可以通过以下方式安装少量来自于社区的卡带：INSTALL_GAMES
 
 
-::加载和保存
 
-当使用LOAD和SAVE时，.P8扩展名可以省略并自动添加。
+:: 文件系统
 
-保存为.p8.png扩展名将以一种特殊的图像格式保存墨盒。
-看起来像墨盒。
+	这些命令可用于管理文件和目录（文件夹）：
 
-使用文件名“ @CLIP”加载或保存到剪贴板。
+	LS          列出当前目录
+	CD BLAH     更改目录
+	CD ..       上一个目录
+	CD /        回到顶层目录（在 PICO-8 的虚拟驱动器上）
+	MKDIR BLAH  创建目录
+	FOLDER      在主机操作系统的文件浏览器中打开当前目录
 
-盒带装入或保存后，也可以使用CTRL-S快速保存
+	LOAD BLAH  从当前目录加载卡带
+	SAVE BLAH  将卡带保存到当前目录
 
-::保存带有文本标签和预览图像的.p8.png购物车
+	如果要移动文件，复制或删除文件，
+	请使用 FOLDER 命令并在主机操作系统中执行。
+
+	PICO-8 的驱动器的默认位置是：
+
+	Windows: C:/Users/Yourname/AppData/Roaming/pico-8/carts
+	OSX: /Users/Yourname/Library/Application Support/pico-8/carts
+	Linux: ~/.lexaloffle/pico-8/carts
+
+	您可以在 pico-8/config.txt 中更改此设置和其他设置
+
+	提示：可以将驱动器目录映射到云驱动器（由Dropbox，Google或类似服务）
+	以创建在多个 PICO-8 计算机之间共享的单个磁盘。
+
+
+:: 加载和保存
+
+	当使用 LOAD 和 SAVE 时，.P8 扩展名可以省略（自动添加）。
+
+	保存为. p8.png 扩展名将以一种特殊的图像格式保存卡带，使其看起来像卡带。
+
+	使用文件名 "@CLIP" 加载或保存到剪贴板。
+
+	卡带加载或保存后，也可以使用 CTRL-S 快速保存
+
+	:: 保存带有文本标签和预览图像的 .p8.png 卡带
 
 要生成保存在购物车中的标签图像，请先运行该程序，然后按CTRL-7进行抓取
 屏幕上的所有内容。程序的前两行也以“-”开头
