@@ -158,97 +158,95 @@
 
 	:: 保存带有文本标签和预览图像的 .p8.png 卡带
 
-要生成保存在购物车中的标签图像，请先运行该程序，然后按CTRL-7进行抓取
-屏幕上的所有内容。程序的前两行也以“-”开头
-绘制到购物车的标签。
+		要生成保存在卡带中的标签图像，请先运行该程序，然后按 CTRL-7 进行抓取
+		屏幕上的所有内容。代码以“--”开头的前两行也会被绘制到卡带的标签。
 
-例如
--海洋潜水传奇
--由LOOPY
-
-
-:: .png格式的代码大小限制
-
-以.png格式保存时，代码的压缩大小必须小于15360字节。
-要查找代码的当前大小，请使用INFO命令。压缩大小限制
-未强制以.p8格式保存。
+		例如
+		-- OCEAN DIVER LEGENDS
+		-- BY LOOPY
 
 
-::使用外部文本编辑器
+	:: .png 格式的代码大小限制
 
-可以使用单独的文本编辑器直接编辑.p8文件。使用CTRL-R运行
-如果出现以下情况，墨盒将自动重新加载文件：
-
-1. PICO-8编辑器中没有未保存的更改，并且
-2.该文件的内容与上次加载的版本不同
-
-如果对磁盘上的购物车和编辑器中的购物车都进行了更改，则会显示一条通知：
-
-没有重新加载；未保存的更改
-
-PICO-8不完全支持大写字符，它们会自动转换为
-在代码编辑器中查看时为小写。请注意，这还会导致存在未保存的更改，
-这意味着CTRL-R将停止自动重新加载磁盘上的版本，直到它被
-手动LOAD（）ed。
-
-字形字符（以shift-A..Z键入）以.p8格式存储并在主机操作中
-系统的剪贴板作为unicode的粗略等效项。
+		以 .png 格式保存时，代码的压缩大小必须小于 15360 字节。
+		要查看代码的当前大小，请使用 INFO 命令。
+		当以 .p8 格式保存时，代码的压缩大小并不强制限制。
 
 
-::备份
+:: 使用外部文本编辑器
 
-如果您退出而不保存更改或覆盖现有文件，则为盒带备份
-已保存到{appdata} / pico-8 / backup。也可以保存当前墨盒的额外副本
-键入BACKUP到同一文件夹。
+	可以使用单独的文本编辑器直接编辑 .p8 文件。
+	在以下情况，使用 CTRL-R 运行卡带将自动重新加载文件：
+
+		1. PICO-8 编辑器中没有未保存的更改，并且
+		2. 该文件的内容与上次加载的版本不同
+
+	如果对磁盘上的卡带和编辑器中的卡带都进行了更改，则会显示一条通知：
+
+		DIDN'T RELOAD; UNSAVED CHANGES
+
+	PICO-8 不完全支持大写字符，在代码编辑器中查看时它们会自动转换为小写。
+	请注意，这还会导致存在未保存的更改，
+	这意味着 CTRL-R 将停止自动重新加载磁盘上的版本，
+	直到它被手动 LOAD()。
+
+	字形字符（以 shift-A..Z 键入）以 .p8 格式存储（unicode）。
+
+
+:: 备份
+
+	如果您退出而不保存更改或覆盖现有文件，
+	则会有一份卡带备份保存到 {appdata}/pico-8/backup。
+	也可以通过键入 BACKUP 保存当前卡带的额外副本到该文件夹中。
 
 
 ::配置
 
-:: config.txt
+	:: config.txt
 
-您可以在config.txt中找到一些设置。当PICO-8未运行时，编辑文件。
+		您可以在 config.txt 中找到一些设置。可在 PICO-8 未运行时编辑文件。
 
-Windows：C：/用户/您的姓名/AppData/Roaming/pico-8/config.txt
-OSX：/用户/您的姓名/图书馆/应用程序支持/pico-8/config.txt
-Linux：〜/ .lexaloffle / pico-8 / config.txt
+		Windows: C:/Users/Yourname/AppData/Roaming/pico-8/config.txt
+		OSX: /Users/Yourname/Library/Application Support/pico-8/config.txt
+		Linux: ~/.lexaloffle/pico-8/config.txt
 
-使用-home开关（如下所示）使用其他路径来存储config.txt和其他数据。
+		使用 -home 开关（如下所示）来使用其他路径来存储 config.txt 以及其他数据。
 
-在运行PICO-8时，可以通过键入CONFIG SETTING VALUE来更改某些设置。
-（单独输入CONFIG作为列表）
+		在运行 PICO-8 时，可以通过键入 CONFIG SETTING VALUE 来更改某些设置。
+		（单独输入 CONFIG 查看可配置列表）
 
 
-::命令行参数
+	:: 命令行参数
 
-//注意：这些覆盖设置位于config.txt中
+		// 注意：这些设置会覆盖 config.txt 中的配置
 
-pico-8 [开关] [filename.p8]
+		pico-8 [switches] [filename.p8]
 
--width n设置窗口宽度
--height n设置窗口高度
--windowed n将窗口模式设置为关闭（0）或打开（1）
--volume n设置音频音量0..256
--joystick n游戏杆控件从玩家n（0..7）开始
--pixel_perfect n 1用于以整数比例（默认情况下为开）进行未经过滤的屏幕拉伸
--preblit_scale n在放大到屏幕之前按n缩放显示（与-pixel_perfect 0一起使用）
--draw_rect x，y，w，h绘制pico-8屏幕的绝对窗口坐标和大小
--运行文件名加载并运行盒式磁带
--x文件名无头执行PICO-8购物车，然后退出（实验！）
--export param_str以无头模式运行EXPORT命令并退出（请参见export下的注释）
--p param_str将参数字符串传递到指定的盒式磁带
-splore模式下的-splore引导
--home路径设置存储config.txt和其他用户数据文件的路径
--root_path path设置存储盒带文件的路径
--desktop路径设置屏幕快照和gif的保存位置
--screenshot_scale n屏幕截图的比例。默认值：3（368x368像素）
--gif_scale n gif捕获的比例。默认值：2（256x256像素）
--gif_len n以秒为单位设置最大gif长度（1..120）
--gui_theme n将1用于更高对比度的编辑器配色方案
--timeout n下载超时之前要等待的秒数（默认值：30）
--software_blit n使用软件提示模式关闭（0）或打开（1）
--foreground_sleep_ms n帧之间要休眠的毫秒数。
--background_sleep_ms n在后台运行时，帧之间要休眠多少毫秒
--accept_future n使用1来允许装载使用将来版本的PICO-8制造的墨盒
+		-width n                 设置窗口宽度
+		-height n                设置窗口高度
+		-windowed n              将窗口模式设置为关闭（0）或打开（1）
+		-volume n                设置音频音量 0..256
+		-joystick n              游戏杆控制从玩家 n（0..7）开始
+		-pixel_perfect n         1 表示以整数比例（默认情况下为开）进行未经过滤的屏幕拉伸
+		-preblit_scale n         在 blitting 到屏幕之前按 n 缩放显示（与 -pixel_perfect 0 一起使用）
+		-draw_rect x,y,w,h       绘制 pico-8 屏幕的绝对窗口坐标和大小
+		-run filename            加载并运行卡带
+		-x filename              执行 PICO-8 卡带（不绘制图形），然后退出（实验！）
+		-export param_str        在非图形模式下运行 EXPORT 命令并退出（请参见 export 下的注释）
+		-p param_str             将参数字符串传递到指定的卡带
+		-splore                  启动 splore 模式
+		-home path               设置存储 config.txt 以及其他用户数据文件的路径
+		-root_path path          设置存储卡带的路径
+		-desktop path            设置屏幕快照和 gif 的保存位置
+		-screenshot_scale n      屏幕截图的比例。默认值：3（368x368 像素）
+		-gif_scale n             gif 捕获的比例。默认值：2（256x256 像素）
+		-gif_len n               以秒为单位设置最大 gif 长度（1..120）
+		-gui_theme n             设置为 1 来启用更高对比度的编辑器配色方案
+		-timeout n               下载超时之前要等待的秒数（默认值：30）
+		-software_blit n         使用软件 blitting 模式关闭（0）或打开（1）
+		-foreground_sleep_ms n   帧之间要休眠的毫秒数。
+		-background_sleep_ms n   在后台运行时，帧之间要休眠多少毫秒
+		-accept_future n         设置为 1 来使用将来版本的 PICO-8 载入卡带
 
 
 ：： 控制器设置
