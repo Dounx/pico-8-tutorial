@@ -249,130 +249,127 @@
 		-accept_future n         设置为 1 来使用将来版本的 PICO-8 载入卡带
 
 
-：： 控制器设置
+:: 控制器设置
 
-PICO-8使用SDL2控制器配置方案。它将检测通用控制器
-在启动时，还会在同一目录的sdl_controllers.txt中查找自定义映射
-作为config.txt。 sdl_controllers.txt每行有一个映射。
+	PICO-8 使用 SDL2 控制器配置方案。它将在启动时检测通用控制器
+	还会在同一目录的 sdl_controllers.txt 中查找自定义映射
+	作为 config.txt。sdl_controllers.txt 每行代表一个映射。
 
-要为您的控制器生成自定义映射字符串，请使用controllermap
-SDL2附带的程序，或尝试http://www.generalarcade.com/gamepadtool/
+	要为您的控制器生成自定义映射字符串，请使用 SDL2 附带的程序 controllermap，
+	或尝试 http://www.generalarcade.com/gamepadtool/
 
-要找出SDL2检测到的控制器ID，请搜索“游戏杆”
-或在运行PICO-8后在log.txt中“映射”。此ID在不同的操作下可能会有所不同
-系统。参见：https://www.lexaloffle.com/bbs/?tid=32130
+	要找出 SDL2 检测到的控制器 ID，请搜索“joysticks”
+	或在运行 PICO-8 后在 log.txt 中查看“Mapping”。
+	此 ID 在不同的操作系统下可能会有所不同。参见：https://www.lexaloffle.com/bbs/?tid=32130
 
-要设置哪些键盘键触发操纵杆按钮的按下，请使用KEYCONFIG。
+	要设置哪些键盘键触发操纵杆按钮的按下，请使用 KEYCONFIG。
 
 
-::屏幕截图，视频和墨盒标签
+:: 屏幕截图，视频和卡带标签
 
-在运行盒带时，请使用：
+	在运行卡带时使用：
 
-CTRL-6将屏幕快照保存到桌面
-CTRL-7捕获墨盒标签图像
-CTRL-8开始录制视频
-CTRL-9将GIF视频保存到桌面（默认情况下，最长8秒）
+		CTRL-6 将屏幕快照保存到桌面
+		CTRL-7 捕获卡带标签图像
+		CTRL-8 开始录制视频
+		CTRL-9 将 GIF 视频保存到桌面（默认情况下，最长 8 秒）
 
-您可以随时保存视频（始终在录制）-使用CTRL-8只是将其重置
-如果您想要的时间少于或等于8秒，请选择视频起点。
+	您可以随时保存视频（始终在录制）-- 使用 CTRL-8 只是重置视频起点。
 
-要更改最大gif长度，请在config.txt中编辑gif_len以指定数字
-记录的秒数。 gif格式不能完全匹配30fps，因此PICO-8
-而是使用最接近的匹配：33.3fps。
+	要更改最大 gif 长度，请在 config.txt 中编辑 gif_len 以指定要记录的秒数。
+	gif 格式不能完全匹配 30fps，因此 PICO-8 使用最接近的：33.3fps。
 
 
 
-::共用墨盒
+:: 共享卡带
 
-共有三种共享PICO-8制造的购物车的方式：
+	共有三种共享 PICO-8 制造的卡带的方式：
 
-1.与其他PICO-8用户直接共享.p8或.p8.png文件
+		1. 与其他 PICO-8 用户直接共享 .p8 或 .p8.png 文件
 
-键入FOLDER在主机操作系统中打开当前文件夹。
+			键入 FOLDER 在主机操作系统中打开当前文件夹。
 
-2.将购物车发布到Lexaloffe BBS上以获得可在网络上播放的版本
+		2. 将卡带发布到 Lexaloffe BBS 上以获得可在网络上游玩的版本
 
-http://www.lexaloffle.com/pico-8.php?page=提交
+			http://www.lexaloffle.com/pico-8.php?page=submit
 
-3.将盒带导出到独立的html / js或本机二进制播放器
-（有关详细信息，请参见出口商部分）
-
-
-::出口商/进口商
-
-EXPORT命令可用于生成png，wav文件以及独立的html和本机文件
-二进制墨盒播放器。输出格式是根据文件名扩展名推断出来的（例如
-.png）。
-
-您可以根据需要自由分发和使用导出的盒带和数据
-您已获得作者和贡献者的许可。
-
-::雪碧表（.png）
-
-导入BLAH.PNG-期望128x128 png和颜色适合pico-8调色板
-导出BLAH.PNG-使用folder（）定位导出的png
-
-:: SFX和音乐（.wav）
-
-EXPORT BLAH.WAV-从当前模板中导出音乐（当编辑器模式为MUSIC时）
-EXPORT BLAH.WAV-导出当前的SFX（当编辑器模式为SFX时）
-导出BLAH％D.WAV-将所有SFX导出为blah0.wav，blah1.wav .. blah63.wav
-
-:: HTML Player（.html）
-
-生成独立的html播放器（foo.html，foo.js）：
->导出FOO.HTML
-
-或者只是.js文件：
->导出FOO.JS
-
-使用-f使用index.html而不是foo.html将文件写入名为foo_html的文件夹中
->导出-F FOO.HTML
-
-（可选）使用-p开关提供自定义html模板：
->导出FOO.HTML -P ONE_BUTTON
-
-这将使用文件{application data} /pico-8/plates/one_button.html作为
-html shell，用.js文件名替换特殊字符串## js_file ##。
-
-使用-w导出为.wasm + .js //实验性的！但拉近时可缩小约100k
->导出-W FOO.HTML
+		3. 将卡带导出到独立的 html/js 或本机二进制文件
+			（有关详细信息，请参见导出部分）
 
 
-::二进制播放器（.bin）
+:: 导出 / 导入
 
-要为Windows，Linux（64位），Mac和Raspberry Pi生成独立的可执行文件，请执行以下操作：
+	EXPORT 命令可用于生成 png，wav 文件以及独立的 html 和本机二进制文件。
+	输出格式是根据文件名扩展名推断出来的（例如 .png）。
 
->导出FOO.BIN
+	您可以根据需要自由分发和使用导出的卡带和数据，
+	如果您已获得作者和贡献者的许可。
 
-默认情况下，墨盒标签用作不透明的图标。
-要从Sprite表中指定图标，请使用-i以及可选的-s和/或-c
-控制大小和透明度。
+	:: 精灵表（.png）
 
--I N图标索引N，默认透明颜色为0（黑色）。
--S N大小NxN个精灵。大小3将产生一个24x24的图标。
--C N将颜色N视为透明。使用16表示不透明。
+		IMPORT BLAH.PNG     --  应当使用 128x128 png 和符合 pico-8 的颜色
+		EXPORT BLAH.PNG     --  使用 folder() 定位导出的 png
 
-例如，要使用从Spritesheet的索引32开始的2x2 Sprite，
-使用颜色12作为透明：
+	:: SFX 和音乐（.wav）
 
->出口-I 32 -S 2 -C 12 FOO.BIN
+		EXPORT BLAH.WAV     --  从当前模板中导出音乐（当编辑器模式为 MUSIC 时）
+		EXPORT BLAH.WAV     --  导出当前的 SFX（当编辑器模式为 SFX 时）
+		EXPORT BLAH%D.WAV   --  将所有 SFX 导出为 blah0.wav，blah1.wav .. blah63.wav
 
-::上传到itch.io
+	:: HTML 格式（.html）
 
-如果要将导出的盒带作为可播放的html上载到itch.io：
+		导出为独立的 html（foo.html，foo.js）：
+		> EXPORT FOO.HTML
 
-1.从PICO-8内部：EXPORT -F FOO.HTML
-2.从itch仪表盘创建一个新项目。
-3.压缩文件夹并上传（设置“此文件将在浏览器中播放”）
-4.嵌入页面，尺寸为750px x 680px。
-5.将“移动友好”设置为（默认方向），将“自动启动页面加载”设置为打开。
-//不需要全屏按钮，因为默认的PICO-8模板有其自己的模板。
-6.将背景（BG2）设置为深色（例如＃232323），将文本设置为浅色（#cccccc）
+		或者只是 .js 文件：
+		> EXPORT FOO.JS
+
+		使用 -f 将文件写入名为 foo_html 的文件夹中，使用 index.html 而不是 foo.html
+		> EXPORT -F FOO.HTML
+
+		可以使用使用 -p 开关提供自定义 html 模板：
+		> EXPORT FOO.HTML -P ONE_BUTTON
+
+		这将使用文件 {application data}/pico-8/plates/one_button.html
+		作为 html shell，用 .js 文件名替换特殊字符串 ##js_file##。
+
+		使用 -w 导出为 .wasm + .js // 实验性的！压缩后可减少大约 100k
+		> EXPORT -W FOO.HTML
 
 
-::导出多个墨盒
+	:: 二进制格式（.bin）
+
+		要为 Windows，Linux（64 位），Mac 和 Raspberry Pi 生成独立的可执行文件，请执行以下操作：
+
+		> EXPORT FOO.BIN
+
+		默认情况下，卡带标签用作不透明的图标。
+		要从精灵表中指定图标，请使用 -i 以及可选的 -s 以及 -c
+		控制大小和透明度。
+
+			-I N  图标索引 N，默认透明颜色为 0（黑色）。
+			-S N  大小为 NxN 的精灵。大小 3 将产生一个 24x24 的图标。
+			-C N  将颜色 N 视为透明。使用 16 表示不透明。
+
+		例如，要使用从精灵表的索引 32 开始的大小为 2x2 的精灵，
+		并将颜色 12 视为透明：
+
+			> EXPORT -I 32 -S 2 -C 12 FOO.BIN
+
+	:: 上传到 itch.io
+
+		如果要将导出的卡带作为可游玩的 html 上传到 itch.io：
+
+			1. 在 PICO-8 内部：EXPORT -F FOO.HTML
+			2. 在 itch 仪表盘创建一个新项目。
+			3. 压缩文件夹并上传（设置“This file will be played in the browser”）
+			4. 嵌入页面，尺寸为 750px x 680px。
+			5. 将“Mobile Friendly”设置为（默认方向），将“Automatically start on page load”设置为打开。
+				// 不需要全屏按钮，因为默认的 PICO-8 模板有其自己的按钮。
+			6. 将背景（BG2）设置为深色（例如 ＃232323），将文本设置为浅色（#cccccc）
+
+
+:: 导出多个卡带
 
 生成时，通过将多达16个盒带传递到EXPORT，可以将它们捆绑在一起。
 独立的html或本机二进制播放器。
