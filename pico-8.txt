@@ -850,7 +850,7 @@ Welcome to PICO-8!
 		1. IF THEN END statements can be written on a single line with:
 
 		IF (NOT B) I=1 J=2
-		-- is equivalent to: IF NOT B THEN I=1 J=2 END
+		-- is equivalent to:  
 		-- note that brackets around the short-hand condition are required.
 		
 	
